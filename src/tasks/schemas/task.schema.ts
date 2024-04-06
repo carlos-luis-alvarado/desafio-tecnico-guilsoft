@@ -4,6 +4,7 @@ export const TaskSchema = new Schema({
   title: String,
   description: String,
   state: String,
+  project:String,
   user: {
     type: Schema.Types.ObjectId,
     ref: 'User',

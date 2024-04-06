@@ -17,6 +17,10 @@ export class TasksService {
     return task;
   }
   async create(createTaskUserDTO: CreateTaskUserDTO): Promise<Task> {
+    createTaskUserDTO = {
+      ...createTaskUserDTO,
+      project:createTaskUserDTO.project.toLowerCase()
+    }
     const task = new this.taskModel(createTaskUserDTO);
     await task.save();
     return task;
@@ -37,5 +41,10 @@ export class TasksService {
       { new: true },
     );
     return updateTask;
+  }
+
+  async getTasksbyProyect(id,project){
+    const tasks = await this.taskModel.find({user:id,project})
+    return tasks
   }
 }

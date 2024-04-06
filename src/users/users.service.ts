@@ -59,6 +59,12 @@ export class UsersService {
     const user = await this.findOneUser(email);
     return this.tasksService.getAll(user._id)
   }
+  async getAllbyProject(email:string,project:string){
+    const user = await this.findOneUser(email);
+    console.log({project});
+    console.log(user._id);
+    return this.tasksService.getTasksbyProyect(user._id,project)
+  }
   async createTask(createTaskDTO: CreateTaskDTO, email: string) {
     const user = await this.findOneUser(email);
     const task = {

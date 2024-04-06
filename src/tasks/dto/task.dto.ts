@@ -7,4 +7,6 @@ export class CreateTaskDTO {
   readonly description: string;
   @IsString()
   readonly state: string;
+  @IsString()
+  readonly project :string;
 }

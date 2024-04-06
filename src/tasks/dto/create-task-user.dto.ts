@@ -9,4 +9,6 @@ export class CreateTaskUserDTO {
   readonly state: string;
   @IsUUID()
   readonly user: string;
+  @IsString()
+  readonly project :string;
 }

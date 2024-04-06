@@ -57,4 +57,12 @@ export class UsersController {
       email: req.user.email
     })
   }
+  @Get('user/:project')
+  async getTasksByProject(@Request() req, @Res() res, @Param('project') project: string,){
+    console.log({project});
+    const taskByProject = await this.usersService.getAllbyProject(req.user.email,project)
+    res.send({
+      taskByProject
+    })
+  }
 }
